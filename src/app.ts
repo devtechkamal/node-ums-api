@@ -1,14 +1,14 @@
 import express from "express";
 import config from "./config";
+import routes from "./routes";
+import { errorHandler } from "./utils/errorHandler";
 
 const app = express();
-const route = express.Router();
+app.use(express.json());
 
-route.get("/", (req, res) => {
-  res.send("Hello World");
-});
+app.use("", routes);
 
-app.use("", route);
+app.use(errorHandler);
 
 app.listen(config.port, () => {
   console.log(`Server running on port ${config.port}`);
