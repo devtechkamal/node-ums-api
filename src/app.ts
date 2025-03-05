@@ -1,4 +1,5 @@
 import express from "express";
+import config from "./config";
 
 const app = express();
 const route = express.Router();
@@ -9,6 +10,6 @@ route.get("/", (req, res) => {
 
 app.use("", route);
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(config.port, () => {
+  console.log(`Server running on port ${config.port}`);
 });
