@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "start": "node dist/app.js",
     "dev": "npx nodemon src/app.ts",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev"
@@ -14,7 +17,8 @@
   "dependencies": {
     "@prisma/client": "^6.4.1",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.1",
